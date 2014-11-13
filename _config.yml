@@ -1,10 +1,11 @@
+auto: true  
 
-# markdown: rdiscount
-# highlighter: pygments
+markdown: rdiscount  
+pygments: true  
+paginate: 8  
+permalink: /:title  
 
-# permalink: /:title
-
-# title: Siberiawolf的小窝
-baseurl:/
-# feed: /atom.xml  
-# author_info: <a href="http://siberiawolf.com/">siberiawolf</a>
+title: Hihera  
+url: http://hihera.github.io  
+feed: /atom.xml    
+author_info: <a href="http://hihera.github.io/">hihera</a>  
