@@ -269,13 +269,13 @@ pre ol {
 	background-position:50% 50%;
 }
 .blog .aside {
-	background-image:url(http://github.com/hihera/hihera.github.io/blob/master/images/index/eiffeltower.jpg);
+	background-image:url("/images/index/tree.jpg");
 }
 .opinion .aside {
-	background-image:url(http://github.com/hihera/hihera.github.io/blob/master/images/index/gradually.jpg);
+	background-image:url("/images/index/penguin.jpg");
 }
 .project .aside {
-	background-image:url(http://github.com/hihera/hihera.github.io/blob/master/images/index/smoke.jpg)
+	background-image:url("/images/index/calligraphy.jpg")
 }
 .index-content .section {
 	margin-left:30%;
