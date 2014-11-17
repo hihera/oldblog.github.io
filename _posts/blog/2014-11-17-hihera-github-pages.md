@@ -5,7 +5,8 @@ description: 本博客是基于Github Pages博客系统，在fork Siberiawolf的
 category: blog
 ---
 
-[Github][]作为现在最流行的代码仓库，很好的将代码和社区联系在了一起，目前已经得到很多大公司和项目的青睐。为使项目更方便的被人理解，介绍页面少不了，甚至会需要完整的文档站，Github替你想到了这一点，他提供了[Github Pages][]的服务，不仅可以方便的为项目建立介绍站点，也可以用来建立个人博客。
+##Github Pages 是什么？
+[Github](https://github.com/)作为现在最流行的代码仓库，很好的将代码和社区联系在了一起，目前已经得到很多大公司和项目的青睐。为使项目更方便的被人理解，github就设计了[Pages](https://pages.github.com/)功能，允许用户自定义项目首页，用来替代默认的源码列表。所以，github Pages可以被认为是用户编写的、托管在github上的静态网页。
 
 Github Pages有以下几个优点：
 
@@ -13,7 +14,7 @@ Github Pages有以下几个优点：
     <li>轻量级的博客系统，没有麻烦的配置</li>
     <li>使用标记语言，比如<a href="http://markdown.tw">Markdown</a></li>
     <li>无需自己搭建服务器</li>
-    <li>根据Github的限制，对应的每个站有300MB空间</li>
+    <li>享受git的版本管理功能，不用担心文章遗失</li>
     <li>可以绑定自己的域名</li>
 </ul>
 
@@ -21,7 +22,11 @@ Github Pages有以下几个优点：
 
 * 使用[Jekyll][]模板系统，相当于静态页发布，适合博客，文档介绍等。
 * 动态程序的部分相当局限，比如没有评论，不过还好我们有解决方案。
-* 基于Git，很多东西需要动手，不像Wordpress有强大的后台
+* 基于Git，很多东西需要动手，不像Wordpress有强大的后台。
+* 它不适合大型网站，因为没有用到数据库，每运行一次都必须遍历全部的文本文件，网站越大，生成时间越长。
+
+##Jekyll是什么？
+[Jekyll](http://jekyllrb.com/)是一个静态站点生成器，它会根据网页源码生成静态文件。它提供了模板、变量、插件等功能，所以实际上可以用来编写整个网站。我们可以在本地编写符合Jekyll规范的网站源码，然后上传到github，由github生成并托管整个网站。
 
 大致就是这些，下面介绍一下该博客搭建的整个过程，以供参考。
 
@@ -49,9 +54,10 @@ Github Pages有以下几个优点：
 
 ###安装markdown解释器RDiscount，通过命令：
 cmd进入E:\RailsInstaller\DevKit目录下，执行命令gem install rdiscount,出现下面命令表示安装成功。
-
-   Successfully installed rdiscount-2.1.7.1
-   1 gem installed 
+    $gem install rdiscount
+    Successfully installed rdiscount-2.1.7.1
+    1 gem installed 
+    ...
 
 ###安装Python
 安装适合自己系统的版本，[Python官网](http://www.python.org/download/) win7 32位快速下载通道,[Python 2.7.2](http://www.python.org/ftp/python/2.7.2/python-2.7.2.msi)
@@ -171,7 +177,7 @@ Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信�
 ###购买、绑定独立域名
 
 [Godaddy][]作为域名服务商他做的还不赖，而且支持支付宝，免去了在中国申请域名需要备案的麻烦，当然，如果你追求速度的话，中国万网或许是个不错的选择。
-如果你不明白如何注册，添加需要绑定的独立域名的服务器，可以参考这里：<a href="http://hugege.com/2009/04/05/godaddy/">
+如果你不明白如何注册，添加需要绑定的独立域名的服务器，可以参考这里：<a href="http://hugege.com/2009/04/05/godaddy/"></a>
 如果你想让`username.github.io`能通过你自己的域名来访问，需要在项目的根目录下新建一个名为`CNAME`的文件，文件内容形如：
 
     beiyuu.com
@@ -286,6 +292,7 @@ Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去
     gem install pygments.rb --version "=0.5.0"
 
 启动仍然报错，故移除jekyll最新版本重新安装了个较低的版本 gem install jekyll -v 1.5.1，出现如下错误：
+
     Destination: d:/myblog/_site
     Generating... Error reading file d:/myblog/_layouts/post.html: invalid byte sequence in GBK
     Liquid Exception: Failed to get header. in _posts/2014-11-17-welcome-to-jekyll.markdown
@@ -299,6 +306,7 @@ Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去
 启动项目仍然出现上面的错误，这时参考了[run jekyll --server failed in win7](http://stackoverflow.com/questions/14253116/run-jekyll-server-failed-in-win7")和[Jekyll Liquid Exception Error](http://akenn.org/blog/Liquid-Exception-Jekyll/)两篇文章，觉得可能是Python版本有问题，之前我装的是3.0的最新版本，故卸载该版本，重新安装了[Python 2.7.2](http://www.python.org/ftp/python/2.7.2/python-2.7.2.msi)，配置了环境变量，安装了distribute-0.6.49。
 
 再次启动项目，发现不报错了，浏览器输入<a>http://localhost:4000/</a>项目可以正常访问了。
+
     cd D:/myblog
     $ jekyll serve
     Configuration file: d:/myblog/_config.yml
@@ -341,3 +349,32 @@ Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去
 ##六、结语
 OK，如果你跟着这篇教程操作顺利的话，那么恭喜你，你已经成功搭建了自己的博客，剩下的就是保持热情去写自己的文章吧！
 
+[BeiYuu]:    http://beiyuu.com  "BeiYuu"
+[Github]:   http://github.com "Github"
+[jQuery]:   https://github.com/jquery/jquery "jQuery@github"
+[Twitter]:  https://github.com/twitter/bootstrap "Twitter@github"
+[Github Pages]: http://pages.github.com/ "Github Pages"
+[Godaddy]:  http://www.godaddy.com/ "Godaddy"
+[Jekyll]:   https://github.com/mojombo/jekyll "Jekyll"
+[DNSPod]:   https://www.dnspod.cn/ "DNSPod"
+[Disqus]: http://disqus.com/
+[多说]: http://duoshuo.com/
+[1]:    {{ page.url}}  ({{ page.title }})
+[2]: http://markdown.tw/    "Markdown语法"
+[3]:    http://baike.baidu.com/view/65575.htm "A记录"
+[4]: http://progit.org/book/zh/ "Pro Git中文版"
+[5]: http://help.github.com/mac-set-up-git/ "Mac下Git安装"
+[6]: http://help.github.com/ssh-key-passphrases/
+[7]: http://beiyuu.github.com
+[8]: https://github.com/mojombo/jekyll/blob/master/README.textile
+[9]: https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter
+[10]: https://github.com/mojombo/jekyll/wiki/configuration
+[11]: https://github.com/beiyuu/beiyuu.github.com
+[12]: http://docs.disqus.com/developers/universal/
+[13]: http://mihai.bazon.net/projects/javascript-syntax-highlighting-engine
+[14]: http://code.google.com/p/google-code-prettify/
+[15]: https://github.com/mojombo/jekyll/wiki/Install
+[16]: https://rvm.io/rvm/install/
+[17]: http://jekyllbootstrap.com/
+[18]: http://chxt6896.github.com/blog/2012/02/13/blog-jekyll-native.html
+[a-record]: https://help.github.com/articles/my-custom-domain-isn-t-working
