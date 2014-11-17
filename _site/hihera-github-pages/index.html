@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>使用Github Pages创建独立博客 | Hihera</title>
+    <title>使用Github Pages创建博客 | Hihera</title>
     <meta name="author" content="Hihera" />
     <meta name="renderer" content="webkit">
     <meta name="description" content="Hihera的足迹" />
@@ -48,9 +48,11 @@
 <div id="content">
     <!-- 文章内容 start -->
     <div class="entry">
-        <h1 class="entry-title"><a href="/beiyuu-github-pages" title="使用Github Pages创建独立博客">使用Github Pages创建独立博客</a></h1>
+        <h1 class="entry-title"><a href="/hihera-github-pages" title="使用Github Pages创建博客">使用Github Pages创建博客</a></h1>
         <p class="entry-date">2014-11-17</p>
-        <p>[Github][]作为现在最流行的代码仓库，很好的将代码和社区联系在了一起，目前已经得到很多大公司和项目的青睐。为使项目更方便的被人理解，介绍页面少不了，甚至会需要完整的文档站，Github替你想到了这一点，他提供了[Github Pages][]的服务，不仅可以方便的为项目建立介绍站点，也可以用来建立个人博客。</p>
+        <h2>Github Pages 是什么？</h2>
+
+<p><a href="https://github.com/">Github</a>作为现在最流行的代码仓库，很好的将代码和社区联系在了一起，目前已经得到很多大公司和项目的青睐。为使项目更方便的被人理解，github就设计了<a href="https://pages.github.com/">Pages</a>功能，允许用户自定义项目首页，用来替代默认的源码列表。所以，github Pages可以被认为是用户编写的、托管在github上的静态网页。</p>
 
 <p>Github Pages有以下几个优点：</p>
 
@@ -58,7 +60,7 @@
     <li>轻量级的博客系统，没有麻烦的配置</li>
     <li>使用标记语言，比如<a href="http://markdown.tw">Markdown</a></li>
     <li>无需自己搭建服务器</li>
-    <li>根据Github的限制，对应的每个站有300MB空间</li>
+    <li>享受git的版本管理功能，不用担心文章遗失</li>
     <li>可以绑定自己的域名</li>
 </ul>
 
@@ -66,20 +68,28 @@
 <p>当然他也有缺点：</p>
 
 <ul>
-<li>使用[Jekyll][]模板系统，相当于静态页发布，适合博客，文档介绍等。</li>
+<li>使用<a href="https://github.com/mojombo/jekyll" title="Jekyll">Jekyll</a>模板系统，相当于静态页发布，适合博客，文档介绍等。</li>
 <li>动态程序的部分相当局限，比如没有评论，不过还好我们有解决方案。</li>
-<li>基于Git，很多东西需要动手，不像Wordpress有强大的后台</li>
+<li>基于Git，很多东西需要动手，不像Wordpress有强大的后台。</li>
+<li>它不适合大型网站，因为没有用到数据库，每运行一次都必须遍历全部的文本文件，网站越大，生成时间越长。</li>
 </ul>
 
 
+<h2>Jekyll是什么？</h2>
+
+<p><a href="http://jekyllrb.com/">Jekyll</a>是一个静态站点生成器，它会根据网页源码生成静态文件。它提供了模板、变量、插件等功能，所以实际上可以用来编写整个网站。我们可以在本地编写符合Jekyll规范的网站源码，然后上传到github，由github生成并托管整个网站。</p>
+
 <p>大致就是这些，下面介绍一下该博客搭建的整个过程，以供参考。</p>
 
-<h2>准备工作</h2>
+<h2>一、准备工作</h2>
 
 <h3>安装RubyInstaller</h3>
 
 <p><a href="http://railsinstaller.org/en">RailsInstaller 一键安装包</a>
 安装完成后，cmd中输入ruby -v，出现ruby的版本号即表示安装成功。</p>
+
+<pre><code>ruby 2.0.0p195 (2013-05-14) [i386-mingw32]
+</code></pre>
 
 <h3>安装Jekyll</h3>
 
@@ -105,25 +115,36 @@ $ gem install rack
 
 <p>cmd进入E:\RailsInstaller\DevKit目录下，执行命令gem install rdiscount,出现下面命令表示安装成功。</p>
 
-<p>   Successfully installed rdiscount-2.1.7.1
-   1 gem installed</p>
+<pre><code>$gem install rdiscount
+Successfully installed rdiscount-2.1.7.1
+1 gem installed 
+...
+</code></pre>
 
 <h3>安装Python</h3>
 
-<p>参见博文<a href="http://ideex.name/cn/2012/08/python-config/">Python 3.2.3 安装和配置</a></p>
+<p>安装适合自己系统的版本，<a href="http://www.python.org/download/">Python官网</a> win7 32位快速下载通道,<a href="http://www.python.org/ftp/python/2.7.2/python-2.7.2.msi">Python 2.7.2</a></p>
 
 <h3>安装Pygments语法高亮</h3>
 
 <p>首先下载<a href="https://pypi.python.org/pypi/distribute/0.6.49">distribute_setup.py</a>文件
-解压该文件，进入到distribute-0.6.49下，在cmd控制台输入命令:python.exe distribute_setup.py
-接着安装Pygments，通过上一步安装好的easy_install，进入E:\Python34\Scripts输入命令：easy_install.exe pygments
-最后配置Pygmentize.exe，在系统变量的PATH路径里，添加其路径，比如在我的方案里，添加：E:\Python34\Scripts</p>
+解压该文件，进入到distribute-0.6.49下，在cmd控制台输入命令:</p>
 
-<h2>配置和使用Github</h2>
+<pre><code>python.exe distribute_setup.py
+</code></pre>
 
-<p>Git是版本管理的未来，他的优点我不再赘述，相关资料很多。推荐这本[Git中文教程][4]。</p>
+<p>接着安装Pygments，通过上一步安装好的easy_install，进入E:\Python34\Scripts输入命令：</p>
 
-<p>要使用Git，需要安装它的客户端，推荐在Linux下使用Git，会比较方便。Windows版的下载地址在这里：<a href="http://code.google.com/p/msysgit/downloads/list" title="Windows版Git客户端">http://code.google.com/p/msysgit/downloads/list</a>。其他系统的安装也可以参考官方的[安装教程][5]。</p>
+<pre><code>easy_install.exe pygments
+</code></pre>
+
+<p>最后配置Pygmentize.exe，在系统变量的PATH路径里，添加其路径，比如在我的方案里，添加：E:\Python34\Scripts</p>
+
+<h2>二、配置和使用Github</h2>
+
+<p>Git是版本管理的未来，他的优点我不再赘述，相关资料很多。推荐这本<a href="http://progit.org/book/zh/" title="Pro Git中文版">Git中文教程</a>。</p>
+
+<p>要使用Git，需要安装它的客户端，推荐在Linux下使用Git，会比较方便。Windows版的下载地址在这里：<a href="http://code.google.com/p/msysgit/downloads/list" title="Windows版Git客户端">http://code.google.com/p/msysgit/downloads/list</a>。其他系统的安装也可以参考官方的<a href="http://help.github.com/mac-set-up-git/" title="Mac下Git安装">安装教程</a>。</p>
 
 <p>下载安装客户端之后，各个系统的配置就类似了，我们使用windows作为例子，Linux和Mac与此类似。具体参考<a href="http://siberiawolf.iteye.com/blog/2035330"></a></p>
 
@@ -159,7 +180,7 @@ Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;
 </code></pre>
 
-<p>然后系统会要你输入加密串（[Passphrase][6]）：</p>
+<p>然后系统会要你输入加密串（<a href="http://help.github.com/ssh-key-passphrases/">Passphrase</a>）：</p>
 
 <pre><code>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;
 Enter same passphrase again:&lt;再次输入加密串&gt;
@@ -180,7 +201,11 @@ Enter same passphrase again:&lt;再次输入加密串&gt;
 <p>选择SSH Keys项，把复制的内容粘贴进去，然后点击Add Key按钮即可：
 <img src="http://siberiawolf.qiniudn.com/images/githubpages/bootcamp_1_ssh.jpg" alt="set ssh keys" /></p>
 
-<p>PS：如果需要配置多个GitHub账号，可以参看这个<a href="http://omiga.org/blog/archives/2269">多个github帐号的SSH key切换</a>，不过需要提醒一下的是，如果你只是通过这篇文章中所述配置了Host，那么你多个账号下面的提交用户会是一个人，所以需要通过命令<code>git config --global --unset user.email</code>删除用户账户设置，在每一个repo下面使用<code>git config --local user.email '你的github邮箱@mail.com'</code> 命令单独设置用户账户信息</p>
+<p>PS：如果需要配置多个GitHub账号，可以参看这个<a href="http://omiga.org/blog/archives/2269">多个github帐号的SSH key切换</a>，不过需要提醒一下的是，如果你只是通过这篇文章中所述配置了Host，那么你多个账号下面的提交用户会是一个人，所以需要通过命令</p>
+
+<pre><code>`git config --global --unset user.email`删除用户账户设置，在每一个repo下面使用
+`git config --local user.email '你的github邮箱@mail.com'` 命令单独设置用户账户信息
+</code></pre>
 
 <h3>5、测试一下</h3>
 
@@ -215,7 +240,7 @@ $ git config --global user.email "your_email@youremail.com"
 
 <p>好了，你已经可以成功连接GitHub了。</p>
 
-<h2>使用GitHub Pages建立博客</h2>
+<h2>三、使用GitHub Pages建立博客</h2>
 
 <p>与GitHub建立好链接之后，就可以方便的使用它提供的Pages服务，GitHub Pages分两种，一种是你的GitHub用户名建立的<code>username.github.io</code>这样的用户&amp;组织页（站），另一种是依附项目的pages。</p>
 
@@ -227,7 +252,7 @@ $ git config --global user.email "your_email@youremail.com"
 <img src="http://siberiawolf.qiniudn.com/images/githubpages/other-pages.png" alt="other pages" /></p>
 
 <p>以第一种为例：
-登陆你的Github账户，创建一个新的版本库，命名为USERNAME.github.io,打开git bash命令行拷贝项目：</p>
+登陆你的Github账户，创建一个新的版本库，命名为username.github.io,打开git bash命令行拷贝项目：</p>
 
 <pre><code>$ git clone https://github.com/username/username.github.io  
 $ cd username.github.io  
@@ -237,31 +262,33 @@ $ git commit -m "Initial commit"
 $ git push origin master
 </code></pre>
 
-<p>当文件推送完毕之后，你会在Github的仓库中，找到刚添加的index.html文件，里面会有一行Hello World。大概10分钟左右，你就可以访问<code>username.github.io</code>就可以看到你上传的页面了，[beiyuu.github.com][7]就是一个例子。</p>
+<p>当文件推送完毕之后，你会在Github的仓库中，找到刚添加的index.html文件，里面会有一行Hello World。大概10分钟左右，你就可以访问<code>username.github.io</code>就可以看到你上传的页面了，<a href="http://beiyuu.github.com">beiyuu.github.com</a>就是一个例子。</p>
 
-<p>关于第二种项目<code>pages</code>，简单提一下，他和用户pages使用的后台程序是同一套，只不过它的目的是项目的帮助文档等跟项目绑定的内容，所以需要在项目的<code>gh-pages</code>分支上去提交相应的文件，GitHub会自动帮你生成项目pages。具体的使用帮助可以参考[Github Pages][]的官方文档：</p>
+<p>关于第二种项目<code>pages</code>，简单提一下，他和用户pages使用的后台程序是同一套，只不过它的目的是项目的帮助文档等跟项目绑定的内容，所以需要在项目的<code>gh-pages</code>分支上去提交相应的文件，GitHub会自动帮你生成项目pages。具体的使用帮助可以参考<a href="http://pages.github.com/" title="Github Pages">Github Pages</a>的官方文档：</p>
 
 <h3>购买、绑定独立域名</h3>
 
-<p>[Godaddy][]作为域名服务商他做的还不赖，而且支持支付宝，免去了在中国申请域名需要备案的麻烦，当然，如果你追求速度的话，中国万网或许是个不错的选择。
-如果你不明白如何注册，添加需要绑定的独立域名的服务器，可以参考这里：<a href="http://hugege.com/2009/04/05/godaddy/">
+<p><a href="http://www.godaddy.com/" title="Godaddy">Godaddy</a>作为域名服务商他做的还不赖，而且支持支付宝，免去了在中国申请域名需要备案的麻烦，当然，如果你追求速度的话，中国万网或许是个不错的选择。
+如果你不明白如何注册，添加需要绑定的独立域名的服务器，可以参考这里：<a href="http://hugege.com/2009/04/05/godaddy/"></a>
 如果你想让<code>username.github.io</code>能通过你自己的域名来访问，需要在项目的根目录下新建一个名为<code>CNAME</code>的文件，文件内容形如：</p>
 
 <pre><code>beiyuu.com
 </code></pre>
+
+<p>注意一定保证CNAME文件是大写，且里边只有域名一行代码，否则访问会失败。</p>
 
 <p>你也可以绑定在二级域名上：</p>
 
 <pre><code>blog.beiyuu.com
 </code></pre>
 
-<p>需要提醒的一点是，如果你使用形如<code>beiyuu.com</code>这样的一级域名的话，需要在DNS处设置A记录到<code>192.30.252.153</code>和<code>192.30.252.154</code>（<strong>这个地址可能会有变动，[这里][a-record]查看</strong>），而不是在DNS处设置为CNAME的形式，否则可能会对其他服务（比如email）造成影响。</p>
+<p>需要提醒的一点是，如果你使用形如<code>beiyuu.com</code>这样的一级域名的话，需要在DNS处设置A记录到<code>192.30.252.153</code>和<code>192.30.252.154</code>（<strong>这个地址可能会有变动，<a href="https://help.github.com/articles/my-custom-domain-isn-t-working">这里</a>查看</strong>），而不是在DNS处设置为CNAME的形式，否则可能会对其他服务（比如email）造成影响。</p>
 
 <p>设置成功后，稍等10分钟，方可生效。</p>
 
-<h2>Jekyll模板系统</h2>
+<h2>四、Jekyll模板系统</h2>
 
-<p>GitHub Pages为了提供对HTML内容的支持，选择了[Jekyll][]作为模板系统，Jekyll是一个强大的静态模板系统，作为个人博客使用，基本上可以满足要求，也能保持管理的方便，你可以查看[Jekyll官方文档][8]。</p>
+<p>GitHub Pages为了提供对HTML内容的支持，选择了<a href="https://github.com/mojombo/jekyll" title="Jekyll">Jekyll</a>作为模板系统，Jekyll是一个强大的静态模板系统，作为个人博客使用，基本上可以满足要求，也能保持管理的方便，你可以查看<a href="https://github.com/mojombo/jekyll/blob/master/README.textile">Jekyll官方文档</a>。</p>
 
 <h3>Jekyll基本结构</h3>
 
@@ -293,7 +320,7 @@ $ git push origin master
 
 <h4>_layouts</h4>
 
-<p>这是模板文件存放的位置。模板需要通过[YAML front matter][9]来定义，后面会讲到，<code>{ { content }}</code>标记用来将数据插入到这些模板中来。</p>
+<p>这是模板文件存放的位置。模板需要通过<a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML front matter</a>来定义，后面会讲到，<code>{ { content }}</code>标记用来将数据插入到这些模板中来。</p>
 
 <h4>_posts</h4>
 
@@ -309,7 +336,7 @@ $ git push origin master
 
 <h3>Jekyll的配置</h3>
 
-<p>Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去一一追究了，很多配置虽有用但是一般不需要去关心，[官方配置文档][10]有很详细的说明，确实需要了可以去这里查，我们主要说两个比较重要的东西，一个是<code>Permalink</code>，还有就是自定义项。</p>
+<p>Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去一一追究了，很多配置虽有用但是一般不需要去关心，<a href="https://github.com/mojombo/jekyll/wiki/configuration">官方配置文档</a>有很详细的说明，确实需要了可以去这里查，我们主要说两个比较重要的东西，一个是<code>Permalink</code>，还有就是自定义项。</p>
 
 <p><code>Permalink</code>项用来定义你最终的文章链接是什么形式，他有下面几个变量：</p>
 
@@ -366,11 +393,62 @@ title: Blogging Like a Hacker
 
 <p>模板变量，我们之前也涉及了不少了，还有其他需要的变量，可以参考官方的文档：<a href="https://github.com/mojombo/jekyll/wiki/template-data" title="Jekyll Template Data">https://github.com/mojombo/jekyll/wiki/template-data</a></p>
 
-<h2>使用Disqus管理评论</h2>
+<h3>jekyll 本地化测试</h3>
+
+<pre><code>D:&gt;jekyll new myblog
+D:&gt;jekyll serve
+</code></pre>
+
+<p>启动报错：</p>
+
+<pre><code>E:/RailsInstaller/Ruby2.0.0/lib/ruby/gems/2.0.0/gems/posix-spawn-0.3.9/lib/posix/spawn.rb:162: warning: cannot close fd before spawn
+←[31m  Liquid Exception: No such file or directory - /bin/sh in 2012-01-17-test-post.md←[
+</code></pre>
+
+<p>解决办法：
+首先，根据<a href="http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html">Jekyll在Windows下面中文编码问题解决方案</a>这里的解决方案，我全都找了一遍，但是依然没有解决。
+而且<code>convertible.rb</code>文件中，根本就没有文章中提到的那段添加<code>utf-8</code>的代码。
+最后这个文章中提到的编码格式、换行符、YAML格式，我这里都没有问题。</p>
+
+<p>接着看到<a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working">stackoverflow</a>解决方案，删除0.6版本的pygments，安装0.5版本。尝试如下：</p>
+
+<pre><code>gem uninstall pygments.rb --version "&gt;0.6.0"
+gem install pygments.rb --version "=0.5.0"
+</code></pre>
+
+<p>启动仍然报错，故移除jekyll最新版本重新安装了个较低的版本 gem install jekyll -v 1.5.1，出现如下错误：</p>
+
+<pre><code>Destination: d:/myblog/_site
+Generating... Error reading file d:/myblog/_layouts/post.html: invalid byte sequence in GBK
+Liquid Exception: Failed to get header. in _posts/2014-11-17-welcome-to-jekyll.markdown
+error: Failed to get header.. Use --trace to view backtrace   
+</code></pre>
+
+<p>然后配置了_config.yml,注释掉了原来的这行代码#markdown: kramdown，重新添加如下两行：</p>
+
+<pre><code>encoding: utf-8
+markdown: rdiscount
+</code></pre>
+
+<p>启动项目仍然出现上面的错误，这时参考了<a href="http://stackoverflow.com/questions/14253116/run-jekyll-server-failed-in-win7" title="">run jekyll --server failed in win7</a>和<a href="http://akenn.org/blog/Liquid-Exception-Jekyll/">Jekyll Liquid Exception Error</a>两篇文章，觉得可能是Python版本有问题，之前我装的是3.0的最新版本，故卸载该版本，重新安装了<a href="http://www.python.org/ftp/python/2.7.2/python-2.7.2.msi">Python 2.7.2</a>，配置了环境变量，安装了distribute-0.6.49。</p>
+
+<p>再次启动项目，发现不报错了，浏览器输入<a>http://localhost:4000/</a>项目可以正常访问了。</p>
+
+<pre><code>cd D:/myblog
+$ jekyll serve
+Configuration file: d:/myblog/_config.yml
+Source: d:/myblog
+Destination: d:/myblog/_site
+Generating... done.
+Server address: http://0.0.0.0:4000
+Server running... press ctrl-c to stop.
+</code></pre>
+
+<h2>五、使用Disqus管理评论</h2>
 
 <p>模板部分到此就算是配置完毕了，但是Jekyll只是个静态页面的发布系统，想做到关爽场倒是很容易，如果想要评论呢？也很简单。</p>
 
-<p>现在专做评论模块的产品有很多，比如[Disqus][]，还有国产的[多说][]，Disqus对现在各种系统的支持都比较全面，到写博客为止，多说现在仅是WordPress的一个插件，所以我这里暂时也使用不了，多说与国内的社交网络紧密结合，还是有很多亮点的，值得期待一下。我先选择了Disqus。</p>
+<p>现在专做评论模块的产品有很多，比如<a href="http://disqus.com/">Disqus</a>，还有国产的<a href="http://duoshuo.com/">多说</a>，Disqus对现在各种系统的支持都比较全面，到写博客为止，多说现在仅是WordPress的一个插件，所以我这里暂时也使用不了，多说与国内的社交网络紧密结合，还是有很多亮点的，值得期待一下。我先选择了Disqus。</p>
 
 <p>注册账号什么的就不提了，Disqus支持很多的博客平台，参见下图：
 <img src="http://siberiawolf.qiniudn.com/images/githubpages/disqus-site.jpg" alt="Disqus sites" /></p>
@@ -395,17 +473,22 @@ title: Blogging Like a Hacker
 
 <p>配置完之后，你也可以做一些异步加载的处理，提高性能，比如我就在最开始页面打开的时候不显示评论，当你想看评论的时候，点击“显示评论”再加载Disqus的模块。代码很简单，你可以参考我的写法。</p>
 
-<p>如果你不喜欢Disqus的样式，你也可以根据他生成的HTML结构，自己改写样式覆盖它的，Disqus现在也提供每个页面的评论数接口，[帮助文档][12]在这里可以看到。</p>
+<p>如果你不喜欢Disqus的样式，你也可以根据他生成的HTML结构，自己改写样式覆盖它的，Disqus现在也提供每个页面的评论数接口，<a href="http://docs.disqus.com/developers/universal/">帮助文档</a>在这里可以看到。</p>
 
-<h2>结语</h2>
+<h2>六、结语</h2>
 
 <p>OK，如果你跟着这篇教程操作顺利的话，那么恭喜你，你已经成功搭建了自己的博客，剩下的就是保持热情去写自己的文章吧！</p>
 
         <div id="disqus_container">
-            <a href="javascript:void(0);" onclick="toggleDuoshuoComments('#comment-box', '使用Github Pages创建独立博客', 'http://sunheran.com//beiyuu-github-pages');">点击查看评论</a>
+            <a href="javascript:void(0);" onclick="toggleDuoshuoComments('#comment-box', '使用Github Pages创建博客', 'http://sunheran.com//hihera-github-pages');">点击查看评论</a>
             <div id="comment-box"></div>
-        </div>        
+        </div> 
+
+   <!-- 多说评论框 start -->
+    <!-- <div class="ds-thread" data-thread-key="使用Github Pages创建博客" data-title="使用Github Pages创建博客" data-url="/hihera-github-pages"></div> -->
+       
     </div>
+    <!-- 多说评论框 end -->
     <!-- 文章内容 end -->
 
     <!-- 微博关注 start -->
@@ -420,9 +503,7 @@ title: Blogging Like a Hacker
         <h2>技术</h2>
         <ul class="artical-list">
         
-            <li><a href="/github-pages">使用Github Pages建独立博客（二）</a></li>
-        
-            <li><a href="/beiyuu-github-pages">使用Github Pages创建独立博客</a></li>
+            <li><a href="/hihera-github-pages">使用Github Pages创建博客</a></li>
         
         </ul>
         
@@ -454,9 +535,9 @@ title: Blogging Like a Hacker
     </p>
 </div>
 <script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
-<!-- 多说公共JS代码 start -->
-<script>var duoshuoQuery = {short_name:"hihera"};</script>
+<script>var duoshuoQuery = {short_name:"sunheran"};</script>
 <script src="http://static.duoshuo.com/embed.js"></script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 function toggleDuoshuoComments(container, id, url){
   if(jQuery(container).has("div").length>0){
@@ -469,8 +550,9 @@ function toggleDuoshuoComments(container, id, url){
   DUOSHUO.EmbedThread(el);
   jQuery(container).append(el);
 }
-</script>
+    </script>
 <!-- 多说公共JS代码 end -->
+
 
 
     <script type="text/javascript">
