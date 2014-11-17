@@ -269,13 +269,13 @@ pre ol {
 	background-position:50% 50%;
 }
 .blog .aside {
-	background-image:url(http://siberiawolf.qiniudn.com/images%2Findex%2Feiffeltower.jpg);
+	background-image:url("/images/index/tree.jpg");
 }
 .opinion .aside {
-	background-image:url(http://siberiawolf.qiniudn.com/images%2Findex%2Fgradually.jpg);
+	background-image:url("/images/index/penguin.jpg");
 }
 .project .aside {
-	background-image:url(http://siberiawolf.qiniudn.com/images%2Findex%2Fsmoke.jpg)
+	background-image:url("/images/index/reading.jpg")
 }
 .index-content .section {
 	margin-left:30%;

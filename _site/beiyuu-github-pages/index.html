@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>使用Github Pages建独立博客（一） | Siberiawolf的小窝</title>
-    <meta name="author" content="Siberiawolf" />
+    <title>使用Github Pages创建独立博客 | Hihera</title>
+    <meta name="author" content="Hihera" />
     <meta name="renderer" content="webkit">
-    <meta name="description" content="Siberiawolf的小窝" />
-    <meta name="keywords" content="Siberiawolf的小窝,siberiawolf,siberiawolf0307">
+    <meta name="description" content="Hihera的足迹" />
+    <meta name="keywords" content="Hihera的足迹,hihera,sunheran1012">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="/css/default.css" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -15,26 +15,26 @@
 
     <div class="home-menu">
         <div class="home-icon-con">
-            <a class="home-menu-icon" href="/" style="color:#fff;">Siberiawolf</a>
+            <a class="home-menu-icon" href="/" style="color:#fff;">Hihera</a>
             <a class="home-follow" href="#" title="Contact Me">+</a>
         </div>
         <div class="home-contact">
-            <a href="https://github.com/siberiawolf" target="_blank">
+            <a href="https://github.com/hihera" target="_blank">
                 <div class="github"></div>
             </a>
-            <a href="http://weibo.com/siberiawolf0307/" target="_blank">
+            <a href="http://weibo.com/u/1657478784/home?wvr=5" target="_blank">
                 <div class="weibo"></div>
             </a>
-            <a href="https://twitter.com/siberiawolf0307" target="_blank">
+            <!-- <a href="https://twitter.com/hihera" target="_blank">
                 <div class="twitter"></div>
             </a>
-            <a href="https://www.facebook.com/siberiawolf0307" target="_blank">
+            <a href="https://www.facebook.com/hihera" target="_blank">
                 <div class="facebook"></div>
-            </a>
+            </a> -->
         </div>
     </div>
 
-    <link rel="stylesheet" href="http://siberiawolf.qiniudn.com/js/prettify/prettify.css" />
+    <link rel="stylesheet" href="/js/prettify/prettify.css" />
 <style type="text/css">
     body { background:#e8e8e8; }
     @media screen and (max-width: 750px){
@@ -48,9 +48,9 @@
 <div id="content">
     <!-- 文章内容 start -->
     <div class="entry">
-        <h1 class="entry-title"><a href="/beiyuu-github-pages" title="使用Github Pages建独立博客（一）">使用Github Pages建独立博客（一）</a></h1>
-        <p class="entry-date">2014-04-06</p>
-        <p><a href="http://github.com" title="Github">Github</a>很好的将代码和社区联系在了一起，于是发生了很多有趣的事情，世界也因为他美好了一点点。Github作为现在最流行的代码仓库，已经得到很多大公司和项目的青睐，比如<a href="https://github.com/jquery/jquery" title="jQuery@github">jQuery</a>、<a href="https://github.com/twitter/bootstrap" title="Twitter@github">Twitter</a>等。为使项目更方便的被人理解，介绍页面少不了，甚至会需要完整的文档站，Github替你想到了这一点，他提供了<a href="http://pages.github.com/" title="Github Pages">Github Pages</a>的服务，不仅可以方便的为项目建立介绍站点，也可以用来建立个人博客。</p>
+        <h1 class="entry-title"><a href="/beiyuu-github-pages" title="使用Github Pages创建独立博客">使用Github Pages创建独立博客</a></h1>
+        <p class="entry-date">2014-11-17</p>
+        <p>[Github][]作为现在最流行的代码仓库，很好的将代码和社区联系在了一起，目前已经得到很多大公司和项目的青睐。为使项目更方便的被人理解，介绍页面少不了，甚至会需要完整的文档站，Github替你想到了这一点，他提供了[Github Pages][]的服务，不仅可以方便的为项目建立介绍站点，也可以用来建立个人博客。</p>
 
 <p>Github Pages有以下几个优点：</p>
 
@@ -66,41 +66,66 @@
 <p>当然他也有缺点：</p>
 
 <ul>
-<li>使用<a href="https://github.com/mojombo/jekyll" title="Jekyll">Jekyll</a>模板系统，相当于静态页发布，适合博客，文档介绍等。</li>
+<li>使用[Jekyll][]模板系统，相当于静态页发布，适合博客，文档介绍等。</li>
 <li>动态程序的部分相当局限，比如没有评论，不过还好我们有解决方案。</li>
 <li>基于Git，很多东西需要动手，不像Wordpress有强大的后台</li>
 </ul>
 
 
-<p>大致介绍到此，作为个人博客来说，简洁清爽的表达自己的工作、心得，就已达目标，所以Github Pages是我认为此需求最完美的解决方案了。</p>
+<p>大致就是这些，下面介绍一下该博客搭建的整个过程，以供参考。</p>
 
-<h2>购买、绑定独立域名</h2>
+<h2>准备工作</h2>
 
-<p>虽说<a href="http://www.godaddy.com/" title="Godaddy">Godaddy</a>曾支持过SOPA，并且首页放着极其不专业的大胸美女，但是作为域名服务商他做的还不赖，选择它最重要的原因是他支持支付宝，没有信用卡有时真的很难过。</p>
+<h3>安装RubyInstaller</h3>
 
-<p>域名的购买不用多讲，注册、选域名、支付，有网购经验的都毫无压力，优惠码也遍地皆是。域名的配置需要提醒一下，因为伟大英明的GFW的存在，我们必须多做些事情。</p>
+<p><a href="http://railsinstaller.org/en">RailsInstaller 一键安装包</a>
+安装完成后，cmd中输入ruby -v，出现ruby的版本号即表示安装成功。</p>
 
-<p>流传Godaddy的域名解析服务器被墙掉，导致域名无法访问，后来这个事情在<a href="http://beiyuu.com" title="BeiYuu">BeiYuu</a>也发生了，不得已需要把域名解析服务迁移到国内比较稳定的服务商处，这个迁移对于域名来说没有什么风险，最终的控制权还是在Godaddy那里，你随时都可以改回去。</p>
+<h3>安装Jekyll</h3>
 
-<p>我们选择<a href="https://www.dnspod.cn/" title="DNSPod">DNSPod</a>的服务，他们的产品做得不错，易用、免费，收费版有更高端的功能，暂不需要。注册登录之后，按照DNSPod的说法，只需三步（我们插入一步）：</p>
+<p>安装ruby成功之后，就可以安装Jekyll了。cmd中执行 gem jekyll install，若提示如下错误，解决方案如下：</p>
 
-<ul>
-    <li>首先添加域名记录，可参考DNSPod的帮助文档：<a href="https://www.dnspod.cn/Support">https://www.dnspod.cn/Support</a></li>
-    <li>在DNSPod自己的域名下添加一条<a href="http://baike.baidu.com/view/65575.htm">A记录</a>，地址就是Github Pages的服务IP地址：207.97.227.245</li>
-    <li>在域名注册商处修改DNS服务:去Godaddy修改Nameservers为这两个地址：f1g1ns1.dnspod.net、f1g1ns2.dnspod.net。如果你不明白在哪里修改，可以参考这里：<a href="https://www.dnspod.cn/support/index/fid/119">Godaddy注册的域名如何使用DNSPod</a></li>
-    <li>等待域名解析生效</li>
-</ul>
+<pre><code>ERROR:  Could not find a valid gem 'jekyll' (&gt;= 0) in any repository  
+ERROR:  Possible alternatives: jekyll`   
+</code></pre>
 
+<p>【解决】<a href="https://github.com/jekyll/jekyll/issues/1409">Github jekyll</a>中有解决方案</p>
 
-<p>域名的配置部分完成，跪谢方校长。</p>
+<pre><code>$ gem sources --remove http://rubygems.org/
+$ gem sources -a http://ruby.taobao.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+http://ruby.taobao.org    
+$ gem install rack 
+</code></pre>
+
+<p>然后继续执行<code>gem install jekyll</code>即可。此处一定要耐心等待，不要看没有任何反应不耐心就关掉cmd或者强制推出，此刻正在下载jekyll包，下载完成就会自动解压安装。等待片刻，当提示21 gems installed。表示jekyll 安装完毕。</p>
+
+<h3>安装markdown解释器RDiscount，通过命令：</h3>
+
+<p>cmd进入E:\RailsInstaller\DevKit目录下，执行命令gem install rdiscount,出现下面命令表示安装成功。</p>
+
+<p>   Successfully installed rdiscount-2.1.7.1
+   1 gem installed</p>
+
+<h3>安装Python</h3>
+
+<p>参见博文<a href="http://ideex.name/cn/2012/08/python-config/">Python 3.2.3 安装和配置</a></p>
+
+<h3>安装Pygments语法高亮</h3>
+
+<p>首先下载<a href="https://pypi.python.org/pypi/distribute/0.6.49">distribute_setup.py</a>文件
+解压该文件，进入到distribute-0.6.49下，在cmd控制台输入命令:python.exe distribute_setup.py
+接着安装Pygments，通过上一步安装好的easy_install，进入E:\Python34\Scripts输入命令：easy_install.exe pygments
+最后配置Pygmentize.exe，在系统变量的PATH路径里，添加其路径，比如在我的方案里，添加：E:\Python34\Scripts</p>
 
 <h2>配置和使用Github</h2>
 
-<p>Git是版本管理的未来，他的优点我不再赘述，相关资料很多。推荐这本<a href="http://progit.org/book/zh/" title="Pro Git中文版">Git中文教程</a>。</p>
+<p>Git是版本管理的未来，他的优点我不再赘述，相关资料很多。推荐这本[Git中文教程][4]。</p>
 
-<p>要使用Git，需要安装它的客户端，推荐在Linux下使用Git，会比较方便。Windows版的下载地址在这里：<a href="http://code.google.com/p/msysgit/downloads/list" title="Windows版Git客户端">http://code.google.com/p/msysgit/downloads/list</a>。其他系统的安装也可以参考官方的<a href="http://help.github.com/mac-set-up-git/" title="Mac下Git安装">安装教程</a>。</p>
+<p>要使用Git，需要安装它的客户端，推荐在Linux下使用Git，会比较方便。Windows版的下载地址在这里：<a href="http://code.google.com/p/msysgit/downloads/list" title="Windows版Git客户端">http://code.google.com/p/msysgit/downloads/list</a>。其他系统的安装也可以参考官方的[安装教程][5]。</p>
 
-<p>下载安装客户端之后，各个系统的配置就类似了，我们使用windows作为例子，Linux和Mac与此类似。</p>
+<p>下载安装客户端之后，各个系统的配置就类似了，我们使用windows作为例子，Linux和Mac与此类似。具体参考<a href="http://siberiawolf.iteye.com/blog/2035330"></a></p>
 
 <p>在Windows下，打开Git Bash，其他系统下面则打开终端（Terminal）：
 <img src="http://siberiawolf.qiniudn.com/images/githubpages/bootcamp_1_win_gitbash.jpg" alt="Git Bash" /></p>
@@ -134,7 +159,7 @@ Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;
 </code></pre>
 
-<p>然后系统会要你输入加密串（<a href="http://help.github.com/ssh-key-passphrases/">Passphrase</a>）：</p>
+<p>然后系统会要你输入加密串（[Passphrase][6]）：</p>
 
 <pre><code>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;
 Enter same passphrase again:&lt;再次输入加密串&gt;
@@ -180,28 +205,11 @@ Are you sure you want to continue connecting (yes/no)?
 
 <p>现在你已经可以通过SSH链接到GitHub了，还有一些个人信息需要完善的。</p>
 
-<p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字必须是你的真名，而不是GitHub的昵称。</p>
+<p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的。</p>
 
 <pre><code>$ git config --global user.name "你的名字"
 $ git config --global user.email "your_email@youremail.com"
 </code></pre>
-
-<h4>设置GitHub的token</h4>
-
-<p>2012-4-28补充：新版的接口已经不需要配置token了，所以下面这段可以跳过了</p>
-
-<p>有些工具没有通过SSH来链接GitHub。如果要使用这类工具，你需要找到然后设置你的API Token。</p>
-
-<p>在GitHub上，你可以点击<em>Account Setting > Account Admin</em>：
-<img src="http://siberiawolf.qiniudn.com/images/githubpages/bootcamp_1_token.jpg" alt="set ssh keys" /></p>
-
-<p>然后在你的命令行中，输入下面的命令，把token添加进去：</p>
-
-<pre><code>$ git config --global user.name "你的名字"
-$ git config --global user.token 0123456789your123456789token
-</code></pre>
-
-<p>如果你改了GitHub的密码，需要重新设置token。</p>
 
 <h3>成功了</h3>
 
@@ -218,15 +226,26 @@ $ git config --global user.token 0123456789your123456789token
 而普通的项目是这样的，即使你也是用的<code>othername.github.io</code>：
 <img src="http://siberiawolf.qiniudn.com/images/githubpages/other-pages.png" alt="other pages" /></p>
 
-<p>创建好<code>username.github.io</code>项目之后，提交一个<code>index.html</code>文件，然后<code>push</code>到GitHub的<code>master</code>分支（也就是普通意义上的主干）。第一次页面生效需要一些时间，大概10分钟左右。</p>
+<p>以第一种为例：
+登陆你的Github账户，创建一个新的版本库，命名为USERNAME.github.io,打开git bash命令行拷贝项目：</p>
 
-<p>生效之后，访问<code>username.github.io</code>就可以看到你上传的页面了，<a href="http://beiyuu.github.com">beiyuu.github.com</a>就是一个例子。</p>
+<pre><code>$ git clone https://github.com/username/username.github.io  
+$ cd username.github.io  
+$ echo "Hello World" &gt; index.html  
+$ git add --all  
+$ git commit -m "Initial commit"  
+$ git push origin master
+</code></pre>
 
-<p>关于第二种项目<code>pages</code>，简单提一下，他和用户pages使用的后台程序是同一套，只不过它的目的是项目的帮助文档等跟项目绑定的内容，所以需要在项目的<code>gh-pages</code>分支上去提交相应的文件，GitHub会自动帮你生成项目pages。具体的使用帮助可以参考<a href="http://pages.github.com/" title="Github Pages">Github Pages</a>的官方文档：</p>
+<p>当文件推送完毕之后，你会在Github的仓库中，找到刚添加的index.html文件，里面会有一行Hello World。大概10分钟左右，你就可以访问<code>username.github.io</code>就可以看到你上传的页面了，[beiyuu.github.com][7]就是一个例子。</p>
 
-<h3>绑定域名</h3>
+<p>关于第二种项目<code>pages</code>，简单提一下，他和用户pages使用的后台程序是同一套，只不过它的目的是项目的帮助文档等跟项目绑定的内容，所以需要在项目的<code>gh-pages</code>分支上去提交相应的文件，GitHub会自动帮你生成项目pages。具体的使用帮助可以参考[Github Pages][]的官方文档：</p>
 
-<p>我们在第一部分就提到了在DNS部分的设置，再来看在GitHub的配置，要想让<code>username.github.io</code>能通过你自己的域名来访问，需要在项目的根目录下新建一个名为<code>CNAME</code>的文件，文件内容形如：</p>
+<h3>购买、绑定独立域名</h3>
+
+<p>[Godaddy][]作为域名服务商他做的还不赖，而且支持支付宝，免去了在中国申请域名需要备案的麻烦，当然，如果你追求速度的话，中国万网或许是个不错的选择。
+如果你不明白如何注册，添加需要绑定的独立域名的服务器，可以参考这里：<a href="http://hugege.com/2009/04/05/godaddy/">
+如果你想让<code>username.github.io</code>能通过你自己的域名来访问，需要在项目的根目录下新建一个名为<code>CNAME</code>的文件，文件内容形如：</p>
 
 <pre><code>beiyuu.com
 </code></pre>
@@ -236,15 +255,13 @@ $ git config --global user.token 0123456789your123456789token
 <pre><code>blog.beiyuu.com
 </code></pre>
 
-<p>需要提醒的一点是，如果你使用形如<code>beiyuu.com</code>这样的一级域名的话，需要在DNS处设置A记录到<code>207.97.227.245</code>（<strong>这个地址会有变动，<a href="https://help.github.com/articles/my-custom-domain-isn-t-working">这里</a>查看</strong>），而不是在DNS处设置为CNAME的形式，否则可能会对其他服务（比如email）造成影响。</p>
+<p>需要提醒的一点是，如果你使用形如<code>beiyuu.com</code>这样的一级域名的话，需要在DNS处设置A记录到<code>192.30.252.153</code>和<code>192.30.252.154</code>（<strong>这个地址可能会有变动，[这里][a-record]查看</strong>），而不是在DNS处设置为CNAME的形式，否则可能会对其他服务（比如email）造成影响。</p>
 
-<p>设置成功后，根据DNS的情况，最长可能需要一天才能生效，耐心等待吧。</p>
+<p>设置成功后，稍等10分钟，方可生效。</p>
 
 <h2>Jekyll模板系统</h2>
 
-<p>GitHub Pages为了提供对HTML内容的支持，选择了<a href="https://github.com/mojombo/jekyll" title="Jekyll">Jekyll</a>作为模板系统，Jekyll是一个强大的静态模板系统，作为个人博客使用，基本上可以满足要求，也能保持管理的方便，你可以查看<a href="https://github.com/mojombo/jekyll/blob/master/README.textile">Jekyll官方文档</a>。</p>
-
-<p>你可以直接fork<a href="https://github.com/beiyuu/beiyuu.github.com">我的项目</a>，然后改名，就有了你自己的满足Jekyll要求的文档了，当然你也可以按照下面的介绍自己创建。</p>
+<p>GitHub Pages为了提供对HTML内容的支持，选择了[Jekyll][]作为模板系统，Jekyll是一个强大的静态模板系统，作为个人博客使用，基本上可以满足要求，也能保持管理的方便，你可以查看[Jekyll官方文档][8]。</p>
 
 <h3>Jekyll基本结构</h3>
 
@@ -276,7 +293,7 @@ $ git config --global user.token 0123456789your123456789token
 
 <h4>_layouts</h4>
 
-<p>这是模板文件存放的位置。模板需要通过<a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML front matter</a>来定义，后面会讲到，<code>{ { content }}</code>标记用来将数据插入到这些模板中来。</p>
+<p>这是模板文件存放的位置。模板需要通过[YAML front matter][9]来定义，后面会讲到，<code>{ { content }}</code>标记用来将数据插入到这些模板中来。</p>
 
 <h4>_posts</h4>
 
@@ -292,7 +309,7 @@ $ git config --global user.token 0123456789your123456789token
 
 <h3>Jekyll的配置</h3>
 
-<p>Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去一一追究了，很多配置虽有用但是一般不需要去关心，<a href="https://github.com/mojombo/jekyll/wiki/configuration">官方配置文档</a>有很详细的说明，确实需要了可以去这里查，我们主要说两个比较重要的东西，一个是<code>Permalink</code>，还有就是自定义项。</p>
+<p>Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去一一追究了，很多配置虽有用但是一般不需要去关心，[官方配置文档][10]有很详细的说明，确实需要了可以去这里查，我们主要说两个比较重要的东西，一个是<code>Permalink</code>，还有就是自定义项。</p>
 
 <p><code>Permalink</code>项用来定义你最终的文章链接是什么形式，他有下面几个变量：</p>
 
@@ -353,7 +370,7 @@ title: Blogging Like a Hacker
 
 <p>模板部分到此就算是配置完毕了，但是Jekyll只是个静态页面的发布系统，想做到关爽场倒是很容易，如果想要评论呢？也很简单。</p>
 
-<p>现在专做评论模块的产品有很多，比如<a href="http://disqus.com/">Disqus</a>，还有国产的<a href="http://duoshuo.com/">多说</a>，Disqus对现在各种系统的支持都比较全面，到写博客为止，多说现在仅是WordPress的一个插件，所以我这里暂时也使用不了，多说与国内的社交网络紧密结合，还是有很多亮点的，值得期待一下。我先选择了Disqus。</p>
+<p>现在专做评论模块的产品有很多，比如[Disqus][]，还有国产的[多说][]，Disqus对现在各种系统的支持都比较全面，到写博客为止，多说现在仅是WordPress的一个插件，所以我这里暂时也使用不了，多说与国内的社交网络紧密结合，还是有很多亮点的，值得期待一下。我先选择了Disqus。</p>
 
 <p>注册账号什么的就不提了，Disqus支持很多的博客平台，参见下图：
 <img src="http://siberiawolf.qiniudn.com/images/githubpages/disqus-site.jpg" alt="Disqus sites" /></p>
@@ -378,71 +395,24 @@ title: Blogging Like a Hacker
 
 <p>配置完之后，你也可以做一些异步加载的处理，提高性能，比如我就在最开始页面打开的时候不显示评论，当你想看评论的时候，点击“显示评论”再加载Disqus的模块。代码很简单，你可以参考我的写法。</p>
 
-<p>如果你不喜欢Disqus的样式，你也可以根据他生成的HTML结构，自己改写样式覆盖它的，Disqus现在也提供每个页面的评论数接口，<a href="http://docs.disqus.com/developers/universal/">帮助文档</a>在这里可以看到。</p>
-
-<h2>代码高亮插件</h2>
-
-<p>如果写技术博客，代码高亮少不了，有两个可选插件<a href="http://mihai.bazon.net/projects/javascript-syntax-highlighting-engine">DlHightLight代码高亮组件</a>和<a href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a>。DLHightLight支持的语言相对较少一些，有js、css、xml和html，Google的高亮插件基本上任何语言都支持，也可以自定义语言，也支持自动识别，也有行号的特别支持。</p>
-
-<p>Google的高亮插件使用也比较方便，只需要在<code>&lt;pre&gt;</code>的标签上加入<code>prettyprint</code>即可。所以我选择了Google Code Prettify。</p>
-
-<h2>搭建本地jekyll环境</h2>
-
-<p>这里主要介绍一下在Mac OS X下面的安装过程，其他操作系统可以参考官方的<a href="https://github.com/mojombo/jekyll/wiki/Install">jekyll安装</a>。</p>
-
-<p>作为生活在水深火热的墙内人民，有必要进行下面一步修改gem的源，方便我们更快的下载所需组建：</p>
-
-<pre><code>sudo gem sources --remove http://rubygems.org/ 
-sudo gem sources -a http://ruby.taobao.org/ 
-</code></pre>
-
-<p>然后用Gem安装jekyll</p>
-
-<pre><code>$ gem install jekyll
-</code></pre>
-
-<p>不过一般如果有出错提示，你可能需要这样安装：</p>
-
-<pre><code>$ sudo gem install jekyll
-</code></pre>
-
-<p>我到了这一步的时候总是提示错误<code>Failed to build gem native extension</code>，很可能的一个原因是没有安装rvm，<a href="https://rvm.io/rvm/install/">rvm的安装</a>可以参考这里，或者敲入下面的命令：</p>
-
-<pre><code>$ curl -L https://get.rvm.io | bash -s stable --ruby
-</code></pre>
-
-<p>然后还需要安装Markdown的解释器，这个需要在你的_config.yml里面设置<code>markdown:rdiscount</code>：</p>
-
-<pre><code>$ gem install jekyll rdiscount
-</code></pre>
-
-<p>好了，如果一切顺利的话，本地环境就基本搭建完成了，进入之前我们建立的博客目录，运行下面的命令：</p>
-
-<pre><code>$ jekyll --server
-</code></pre>
-
-<p>这个时候，你就可以通过<code>localhost:4000</code>来访问了。还有关于<a href="http://jekyllbootstrap.com/">jekyll bootstrap</a>的资料，需要自己修改调试的，可以研究一下。</p>
-
-<p>我在这个过程中还遇到两个诡异的没有解决的问题，一个是我放在根目录下面的blog.md等文件，在GitHub的pages服务上一切正常，可以通过<code>beiyuu.com/blog</code>访问的到，但是在本地环境下，总是<code>not found</code>，很是让人郁闷，看生成的<code>_site</code>目录下面的文件，也是正常的<code>blog.html</code>，但就是找不到，只有当我把URL改为<code>localhost:4000/blog.html</code>的时候，才能访问的到，环境不同真糟糕。</p>
-
-<p>还有一个是关于<code>category</code>的问题，根据<code>YAML</code>的语法，我们在文章头部可以定义文章所属的类别，也可以定义为<code>category:[blog,rss]</code>这样子的多类别，我在本地试一切正常，但是push到GitHub之后，就无法读取了，真让人着急，没有办法，只能采用别的办法满足我的需求了。这里还有一篇<a href="http://chxt6896.github.com/blog/2012/02/13/blog-jekyll-native.html">Jekyll 本地调试之若干问题</a>，安装中如果有其他问题，也可以对照参考一下。</p>
+<p>如果你不喜欢Disqus的样式，你也可以根据他生成的HTML结构，自己改写样式覆盖它的，Disqus现在也提供每个页面的评论数接口，[帮助文档][12]在这里可以看到。</p>
 
 <h2>结语</h2>
 
-<p>如果你跟着这篇不那么详尽的教程，成功搭建了自己的博客，恭喜你！剩下的就是保持热情的去写自己的文章吧。</p>
+<p>OK，如果你跟着这篇教程操作顺利的话，那么恭喜你，你已经成功搭建了自己的博客，剩下的就是保持热情去写自己的文章吧！</p>
 
         <div id="disqus_container">
-            <a href="javascript:void(0);" onclick="toggleDuoshuoComments('#comment-box', '使用Github Pages建独立博客（一）', 'http://siberiawolf.com//beiyuu-github-pages');">点击查看评论</a>
+            <a href="javascript:void(0);" onclick="toggleDuoshuoComments('#comment-box', '使用Github Pages创建独立博客', 'http://sunheran.com//beiyuu-github-pages');">点击查看评论</a>
             <div id="comment-box"></div>
         </div>        
     </div>
     <!-- 文章内容 end -->
 
     <!-- 微博关注 start -->
-    <div class="sidenav">
+    <!-- <div class="sidenav">
 
-        <iframe width="100%" height="75" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=0&isFans=0&uid=2313100327&verifier=d53cef72&dpc=1"></iframe>
-    </div>
+        <iframe width="100%" height="75" class="share_self"  frameborder="0" scrolling="no" src="http://weibo.com/u/1657478784/home?wvr=5"></iframe>
+    </div> -->
     <!-- 微博关注 end -->
 
     <!-- 文章目录 start -->
@@ -450,26 +420,20 @@ sudo gem sources -a http://ruby.taobao.org/
         <h2>技术</h2>
         <ul class="artical-list">
         
-            <li><a href="/personal-technology-growth">WEB前端开发资料索引</a></li>
-        
-            <li><a href="/zepto">Zepto.js使用</a></li>
-        
-            <li><a href="/mongodb-simple-crud">mongodb简单CRUD</a></li>
-        
             <li><a href="/github-pages">使用Github Pages建独立博客（二）</a></li>
         
-            <li><a href="/beiyuu-github-pages">使用Github Pages建独立博客（一）</a></li>
+            <li><a href="/beiyuu-github-pages">使用Github Pages创建独立博客</a></li>
         
         </ul>
         
         <h2>生活</h2>
         <ul class="artical-list">
         
-            <li><a href="/snowboarding-course">单板滑雪教程</a></li>
+            <li><a href="/start-now">写给开始</a></li>
         
         </ul>
 
-        <h2>项目</h2>
+        <h2>分享</h2>
         <ul class="artical-list">
             <li><a href="/free_programming/index.html">免费的编程中文书籍索引</a></li>
             <li><a href="/frontend_knowledge/index.html">前端知识结构图</a></li>
@@ -478,26 +442,20 @@ sudo gem sources -a http://ruby.taobao.org/
     <!-- 文章目录 end -->
 	
 	<!-- jd推广 start -->
-	
-    <div class="sidenav">
-        <script type="text/javascript">var jd_union_pid="220519230";var jd_union_euid="";</script>
-        <script type="text/javascript" src="http://ads.union.jd.com/static/js/union.js"></script>        
-    </div>
-    
+	<!--  -->
     <!-- jd推广 end -->
 </div>
 <div id="footer">
     <p>
-        <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备14051142号</a>，版权所有 © 2014 
-        <a href="http://siberiawolf.com/" target="_blank">Siberiawolf的小窝</a>。
+       <a href="http://sunheran.com/" target="_blank">Hihera的足迹，版权所有 © 2014 </a>。
         感谢<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>开源技术。
-        感谢<a href="https://portal.qiniu.com/signup?code=3l8fij4ieuvrm" target="_blank">七牛云存储</a>提供静态资源空间。
-        本站代码地址在<a href="https://github.com/siberiawolf/siberiawolf.github.io" target="_blank">这里</a>
+        感谢<a href="http://siberiawolf.com/" target="_blank">Siberiawolf</a>提供的帮助。
+        本站代码地址在<a href="https://github.com/hihera/hihera.github.io/tree/master/free_programming" target="_blank">这里</a>
     </p>
 </div>
 <script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
 <!-- 多说公共JS代码 start -->
-<script>var duoshuoQuery = {short_name:"siberiawolf"};</script>
+<script>var duoshuoQuery = {short_name:"hihera"};</script>
 <script src="http://static.duoshuo.com/embed.js"></script>
 <script type="text/javascript">
 function toggleDuoshuoComments(container, id, url){
@@ -530,9 +488,10 @@ function toggleDuoshuoComments(container, id, url){
     </script>
     <!-- 百度统计代码 start -->
     <script type="text/javascript">
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1248d51f06841e8dda82405c280d6597' type='text/javascript'%3E%3C/script%3E"));
-    </script>
+     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fde2cd1143a6ff8e921116efa8969fc1e' type='text/javascript'%3E%3C/script%3E"));
+     </script>
+
     <!-- 百度统计代码 end -->
 </body>
 </html>
