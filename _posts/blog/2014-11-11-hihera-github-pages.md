@@ -37,11 +37,11 @@ Github Pages有以下几个优点：
 
     ruby 2.0.0p195 (2013-05-14) [i386-mingw32]
 
-###安装Jekyll 
+###安装Jekyll
 安装ruby成功之后，就可以安装Jekyll了。cmd中执行 gem jekyll install，若提示如下错误，解决方案如下：
 
-    ERROR:  Could not find a valid gem 'jekyll' (>= 0) in any repository  
-    ERROR:  Possible alternatives: jekyll`   
+    ERROR:  Could not find a valid gem 'jekyll' (>= 0) in any repository
+    ERROR:  Possible alternatives: jekyll`
 
 【解决】[Github jekyll](https://github.com/jekyll/jekyll/issues/1409)中有解决方案
 
@@ -49,8 +49,8 @@ Github Pages有以下几个优点：
     $ gem sources -a http://ruby.taobao.org/
     $ gem sources -l
     *** CURRENT SOURCES ***
-    http://ruby.taobao.org    
-    $ gem install rack 
+    http://ruby.taobao.org
+    $ gem install rack
 
 然后继续执行`gem install jekyll`即可。此处一定要耐心等待，不要看没有任何反应不耐心就关掉cmd或者强制推出，此刻正在下载jekyll包，下载完成就会自动解压安装。等待片刻，当提示21 gems installed。表示jekyll 安装完毕。
 
@@ -59,7 +59,7 @@ cmd进入E:\RailsInstaller\DevKit目录下，执行命令gem install rdiscount,�
 
     $gem install rdiscount
     Successfully installed rdiscount-2.1.7.1
-    1 gem installed 
+    1 gem installed
     ...
 
 ###安装Python
@@ -174,11 +174,11 @@ Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信�
 以第一种为例：
 登陆你的Github账户，创建一个新的版本库，命名为username.github.io,打开git bash命令行拷贝项目：
 
-    $ git clone https://github.com/username/username.github.io  
-    $ cd username.github.io  
-    $ echo "Hello World" > index.html  
-    $ git add --all  
-    $ git commit -m "Initial commit"  
+    $ git clone https://github.com/username/username.github.io
+    $ cd username.github.io
+    $ echo "Hello World" > index.html
+    $ git add --all
+    $ git commit -m "Initial commit"
     $ git push origin master
 
 
@@ -310,7 +310,7 @@ Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去
     Destination: d:/myblog/_site
     Generating... Error reading file d:/myblog/_layouts/post.html: invalid byte sequence in GBK
     Liquid Exception: Failed to get header. in _posts/2014-11-17-welcome-to-jekyll.markdown
-    error: Failed to get header.. Use --trace to view backtrace   
+    error: Failed to get header.. Use --trace to view backtrace
 
 然后配置了_config.yml,注释掉了原来的这行代码#markdown: kramdown，重新添加如下两行：
 

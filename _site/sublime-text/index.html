@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sublime Text 3 使用介绍 | Hihera</title>
+    <meta name="author" content="Hihera" />
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="Hihera的足迹" />
+    <meta name="keywords" content="Hihera的足迹,hihera,sunheran1012">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/default.css" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+    <div class="home-menu">
+        <div class="home-icon-con">
+            <a class="home-menu-icon" href="/" style="color:#fff;">Hihera</a>
+            <a class="home-follow" href="#" title="Contact Me">+</a>
+        </div>
+        <div class="home-contact">
+            <a href="https://github.com/hihera" target="_blank">
+                <div class="github"></div>
+            </a>
+            <a href="http://weibo.com/2391924161/profile?topnav=1&wvr=5" target="_blank">
+                <div class="weibo"></div>
+            </a>
+            <!-- <a href="https://twitter.com/hihera" target="_blank">
+                <div class="twitter"></div>
+            </a>
+            <a href="https://www.facebook.com/hihera" target="_blank">
+                <div class="facebook"></div>
+            </a> -->
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="/js/prettify/prettify.css" />
+<style type="text/css">
+    body { background:#e8e8e8; }
+    @media screen and (max-width: 750px){
+        body { background:#fff; }
+    }
+    @media screen and (max-width: 1020px){
+        body { background:#fff; }
+    }
+</style>
+
+<div id="content">
+    <!-- 文章内容 start -->
+    <div class="entry">
+        <h1 class="entry-title"><a href="/sublime-text" title="Sublime Text 3 使用介绍">Sublime Text 3 使用介绍</a></h1>
+        <p class="entry-date">2014-11-19</p>
+        <h2>Sublime Text 是什么</h2>
+
+<p>Sublime Text 是一款跨平台代码编辑器（Code Editor），也是HTML和散文先进的文本编辑器，你不仅可以用它来写代码，还可以用它来写文章做笔记。从最初的Sublime Text 1.0，到现在的 3.0，被无数的开发者所喜爱。</p>
+
+<h3>为什么选择它？</h3>
+
+<p><strong>跨平台</strong>：可以在 Linux 、OS X 和 Windows 任意操作系统下使用，减少了重复学习的成本，这一点和 Vim 有异曲同工之妙。<br/>
+<strong>可扩展</strong>：它支持大部分的程序语言，有超过 1,300 “packages” 可以扩展它的功能，你可以安装自己领域的插件来成倍提高工作效率。<br/>
+<strong>效率高</strong>：Sublime Text 拥有强大的特性，像任意跳转、分区编辑，快速项目切换等，学会使用它会大大提高工作效率。</p>
+
+<p>Sublime Text 编辑器面向无语义的纯文本，不涉及领域逻辑，体积小速度快，非常适合编写单独的配置文件和动态脚本语言（如Shell、Python和Ruby等）学会使用它，绝对会使你的工作事倍功半，下面就来讲讲如何优雅的使用它。</p>
+
+<h2>安装（Installation）</h2>
+
+<p>官网：<a href="http://www.sublimetext.com/3">http://www.sublimetext.com/3</a></p>
+
+<h3>添加 Sublime Text 到环境变量</h3>
+
+<p>键盘 <code>Win + R</code>，运行 <code>sysdm.cpl</code> 打开系统属性，切换到“高级”选项卡，选择“环境变量”，在系统变量里找到 path，编辑，增加你 Sublime 的安装路径，例如：</p>
+
+<pre><code>C:\Sublime Text 3
+</code></pre>
+
+<p>这样你就可以通过 <code>Win + R</code> ，运行cmd，在命令行里利用 <code>subl</code> 命令直接使用 Sublime Text 了。</p>
+
+<pre><code>&gt; subl filename   "使用sublime text 打开某个文件,filename 为文件名 "
+&gt; subl foldername "使用sublime text 打开某个文件夹，foldername 为文件夹名"
+&gt; subl .          "使用sublime text 打开当前路径下的文件夹"
+&gt; $ git config --global core.editor "subl --new-window --wait" 配置git上默认编辑方式
+</code></pre>
+
+<h2>安装 Package Control</h2>
+
+<p>Package Control 是一个必备的包管理器，前面提到的插件安装就是在这个基础上安装的。
+安装教程：<a href="http://sublime.wbond.net/installation">http://sublime.wbond.net/installation</a></p>
+
+<p>通过 <code>View -&gt; Show Console</code> 启动控制台，复制粘贴下面命令到最后一行输入框，回车等待安装完成。</p>
+
+<pre><code>&gt; import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+</code></pre>
+
+<p>安装成功后，使用<code>Ctrl + Shift + P</code>，打开命令版，输入 <code>IPCP</code> （支持模糊匹配,可以使用文件名的前缀、首字母或是某部分进行匹配）,出现 Package Control，这表名你可以安装任何你想用的插件了。</p>
+
+<h2>插件安装</h2>
+
+<h3>常用插件介绍</h3>
+
+<p>推荐以下几款个人觉得比较常用的插件，其中所有插件的安装都是先使用<code>Ctrl + Shift + P</code>，打开命令面板安装Package Control，然后再在弹出的输入框内输入要安装的插件名称（可以模糊匹配插件名称）。</p>
+
+<p><strong>ConvertToUTF8</strong>　          支持 GBK等编码的插件，安装它后就会解决中文乱码问题。<br/>
+<strong>Bracket Highlighter</strong>         用于匹配括号，引号和html标签。安装好后，自动生效。<br/>
+<strong>AllAutocomplete</strong>             从所有打开的文件中匹配查找的内容，是对默认autocomplete的扩展。<br/>
+<strong>SublimeCodeIntel</strong>           支持各种语言的自动提示功能。使用参考：<a href="http://sublime.wbond.net/packages/SublimeCodeIntel"></a><br/>
+<strong>ColorPicker</strong>                   调色盘，默认快捷键<code>Cmd + Shift + C</code>，冲突的话用上面的方式自行修改。<br/>
+<strong>BracketHighlighter</strong>          高亮匹配 [] ,  () ,  {} ,  <tag></tag>等，对于快速定位代码段非常有用。<br/>
+<strong>DocBlockr</strong>　　              可以自动生成PHPDoc风格的注释。支持Javascript, PHP, Java,  C等。<br/>
+<strong>Emmet(Zen Coding)</strong>       快速生成 HTML 代码段的插件。<br/>
+<strong>SideBar Enhancements</strong>  增强侧边栏功能。配置浏览器预览效果参考：<a href="http://dengo.org/archives/923"></a> <br/>
+<strong>JsFormat javascript</strong>         javascript代码格式化，按快捷键Ctrl+Alt+F可格式化当前的js文件。<br/>
+<strong>Git</strong>                                 将Git整合进你的SublimeText，在SublimeText中运行Git命令。<br/>
+<strong>GitGutter</strong>                       它可以在行数的前面显示那一行是被增加，修改还是删除。<br/>
+<strong>Alignment</strong>                      等号进行智能对齐，可以将凌乱的代码以等号为准左右对齐。
+默认快捷键<code>Ctrl+Alt+A</code>，（与QQ截图快捷键冲突，可以在 <code>Preferences-&gt;Key Bindings-User</code> 中自己修改快捷键，加入下面代码）</p>
+
+<pre><code>&gt; { "keys": ["f10"], "command": "alignment" }
+</code></pre>
+
+<h3>Sublime for Ruby</h3>
+
+<p>1、添加 Sublime Text 到环境变量和安装 Package Control，开始已完成，跳过此步。<br/>
+2、安装 Soda theme 和 RailsCasts color scheme 主题风格</p>
+
+<ul>
+<li><code>Ctrl + Shift + P</code> 输入 <code>PCIP</code> 找到 “Package Control: Install Package” 回车</li>
+<li>输入<code>RailsCasts Colour Scheme</code> 可以模糊匹配</li>
+<li>同上操作安装<code>Theme - Soda</code></li>
+<li><p>安装完成后在 <code>Preferences-&gt;Settings -User</code>里边加上这句话激活主题</p>
+
+<blockquote><p>"theme": "Soda Light 3.sublime-theme"</p></blockquote></li>
+</ul>
+
+
+<p>3、安装 Ruby Debugger，具体安装步骤参考 <a href="http://sublime.wbond.net/packages/Ruby%20Debugger"></a></p>
+
+<h3>Sublime for Markdown</h3>
+
+<p>1、安装 Markdown Preview</p>
+
+<ul>
+<li><code>Ctrl + Shift + P</code> 输入 <code>PCIP</code> 找到 “Package Control: Install Package” 回车</li>
+<li>输入<code>Monokai Preview</code> 可模糊匹配。支持在浏览器中预览和直接转化为 Html。</li>
+</ul>
+
+
+<p>2、安装 Markdown 语法高亮主题。</p>
+
+<ul>
+<li>同上安装 <code>Monokai Extended</code>，然后通过<code>Preferences-&gt;Color Scheme-&gt;Monokai Extended</code>启用。</li>
+</ul>
+
+
+<p>3、为 Markdown 文件中其他语法添加高亮效果</p>
+
+<ul>
+<li>同样安装<code>Markdown Extended</code>，打开一个markdown文件在右下角的语言栏选择 Markdown Extended激活这种语言高亮。</li>
+</ul>
+
+
+<h2>常用快捷键</h2>
+
+<p><code>Ctrl + Shift + P</code>打开Package Control，上面已经用过了 <br/>
+<code>Ctrl + Shift + D</code> 复制光标所在整行，插入在该行之前<br/>
+<code>ctrl + shift + F</code> 在文件夹内查找，与普通编辑器不同的地方是sublime允许添加多个文件夹查找<br/>
+<code>Ctrl + Shift + K</code> 删除整行<br/>
+<code>Ctrl + Shift + L</code> 鼠标选中多行（按下快捷键），即可同时编辑这些行<br/>
+<code>Ctrl + Shift + M</code> 选择括号内的内容（按住-继续选择父括号）<br/>
+<code>Ctrl + Shift + [</code>  折叠代码<br/>
+<code>Ctrl + Shift + ]</code> 展开代码<br/>
+<code>Ctrl + Shift + Enter</code> 光标前插入行<br/>
+<code>Ctrl + PageDown</code> 光标后插入行<br/>
+<code>Ctrl  + Shift  + V</code> 格式化粘贴<br/>
+<code>Ctrl + PageUp</code> 文件按开启的前后顺序切换<br/>
+<code>Ctrl + J</code> 合并行（已选择需要合并的多行时）<br/>
+<code>Ctrl + L</code> 选择整行（按住-继续选择下行）<br/>
+<code>Ctrl + K Backspace</code> 从光标处删除至行首<br/>
+<code>Ctrl + KB</code> 开启/关闭侧边栏<br/>
+<code>Ctrl + KK</code> 从光标处删除至行尾<br/>
+<code>Ctrl + KU</code> 改为大写<br/>
+<code>Ctrl + KL</code> 改为小写<br/>
+<code>Ctrl + K0</code> 展开所有<br/>
+<code>Ctrl + Tab</code> 当前窗口中的标签页切换<br/>
+<code>Ctrl + F2</code> 设置书签<br/>
+<code>Shift+ F2</code> 上一个书签<br/>
+<code>Ctrl + /</code> 注释整行（如已选择内容，同“Ctrl+Shift+/”效果）<br/>
+<code>Ctrl + 鼠标左键</code> 可以同时选择要编辑的多处文本<br/>
+<code>Shift + 鼠标右键</code>（或使用鼠标中键）可以用鼠标进行竖向多行选择<br/>
+<code>Shift + Tab</code> 去除缩进<br/>
+<code>Alt + Shift + 1~9</code>（非小键盘）屏幕显示相等数字的小窗口<br/>
+<code>Alt + F3</code> 选中文本按下快捷键，即可一次性选择全部的相同文本进行同时编辑<br/>
+<code>F6</code> 检测语法错误<br/>
+<code>F9</code> 行排序(按a-z)<br/>
+<code>Ctrl + P</code> （Go To Anything）根据文件名打开文件,可以模糊匹配，可以输入路径文件名称<br/>
+<code>Ctrl + R</code> 找到了需要的文件后，想要在文件中找某个函数，可以输入 <code>@函数名</code><br/>
+<code>Ctrl + G</code> 输入<code>:数字</code> 回车跳到对应行；输入<code>#关键字</code>，可找到对应的标识<br/>
+<code>Ctrl + Enter</code> 在当前行下面新增加一行然后跳至该行<br/>
+<code>Ctrl + Shift + Enter</code> 在当前行上面增加一行并跳至该行<br/>
+<code>Ctrl + ←/→</code> 进行逐词移动<br/>
+<code>Ctrl + Shift + ←/→</code> 进行逐词选择<br/>
+<code>Ctrl + ←/→</code>进行逐词移动<br/>
+<code>Ctrl + Shift + ←/→</code>进行逐词选择<br/>
+<code>Ctrl + Shift+F</code> 在当前打开的项目中，根据你的输入进行全项目查找<br/>
+<code>Ctrl + D</code> 多重选择，选择当前光标所在的词并高亮该词所有出现的位置，再次 <code>Ctrl + D</code>选择该词出现的下一个位置<br/>
+<code>Ctrl + K</code> 跳过<br/>
+<code>Ctrl + U</code> 回退<br/>
+<code>Ctrl + Shift + L</code> 可以将当前选中区域打散，然后进行同时编辑<br/>
+<code>Ctrl + D</code>选中关键字，<code>F3</code>跳到其下一个出现位置编辑，<code>Shift + F3</code> 跳到其上一个出现位置编辑<br/>
+<code>Alt + F3</code> 选中所有出现选中的内容，可以进行全部替换<br/>
+<code>Ctrl + H</code> 可以进行标准查找替换<br/>
+<code>Ctrl + Shift + H</code> 替换当前关键字<br/>
+<code>Ctrl + Alt + Enter</code>替换所有匹配关键字<br/>
+<code>Ctrl + N</code> 在当前窗口创建一个新标签<br/>
+<code>Ctrl + W</code> 关闭当前标签<br/>
+<code>Ctrl + Shift + T</code>恢复刚刚关闭的标签<br/>
+<code>Ctrl + 数字键</code> 跳转到指定屏<br/>
+<code>Ctrl + Shift + 数字键</code> 将当前屏移动到指定屏<br/>
+<code>F11</code> 切换普通全屏,在开启全屏前可以关闭菜单栏（"Toggle Menu"）<br/>
+<code>Shift + F11</code> 切换无干扰全屏<br/>
+<code>Ctrl + [</code> 向左缩进<br/>
+<code>Ctrl + ]</code> 向右缩进<br/>
+<code>Ctrl + Shift + V</code> 可以以当前缩进粘贴代码<br/>
+<code>Ctrl + M</code> 可以快速的在起始括号和结尾括号间切换<br/>
+<code>Ctrl + Shift + M</code> 则可以快速选择括号间的内容<br/>
+<code>Ctrl + F</code> 可以进行查找,最下面，会提示总共几个，匹配上了几个。在 “Find What” 输入框里边，按住<code>Enter</code> 查找下一个，<code>Shift + Enter</code> 查找上一个，<code>Alt + Enter</code> 查找所有</p>
+
+<h2>链接</h2>
+
+<ul>
+<li>官方文档：<a href="http://www.sublimetext.com/docs/3/">http://www.sublimetext.com/docs/3/</a></li>
+<li>官方论坛：<a href="http://www.sublimetext.com/forum/">http://www.sublimetext.com/forum/</a></li>
+<li>全程指南：<a href="http://zh.lucida.me/blog/sublime-text-complete-guide/">http://zh.lucida.me/blog/sublime-text-complete-guide/</a></li>
+<li>插件支持：<a href="http://blog.jobbole.com/58725/">http://blog.jobbole.com/58725/</a></li>
+<li>其他语言：<a href="http://opensourcehacker.com/2014/03/10/sublime-text-3-for-python-javascript-and-web-developers/">http://opensourcehacker.com/2014/03/10/sublime-text-3-for-python-javascript-and-web-developers/</a></li>
+</ul>
+
+
+        <div id="disqus_container">
+            <a href="javascript:void(0);" onclick="toggleDuoshuoComments('#comment-box', 'Sublime Text 3 使用介绍', 'http://sunheran.com//sublime-text');">点击查看评论</a>
+            <div id="comment-box"></div>
+        </div> 
+
+   <!-- 多说评论框 start -->
+    <!-- <div class="ds-thread" data-thread-key="Sublime Text 3 使用介绍" data-title="Sublime Text 3 使用介绍" data-url="/sublime-text"></div> -->
+       
+    </div>
+    <!-- 多说评论框 end -->
+    <!-- 文章内容 end -->
+
+    <!-- 微博关注 start -->
+    <!-- <div class="sidenav">
+
+        <iframe width="100%" height="75" class="share_self"  frameborder="0" scrolling="no" src="http://weibo.com/u/1657478784/home?wvr=5"></iframe>
+    </div> -->
+    <!-- 微博关注 end -->
+
+    <!-- 文章目录 start -->
+    <div class="sidenav">
+        <h2>技术</h2>
+        <ul class="artical-list">
+        
+            <li><a href="/sublime-text">Sublime Text 3 使用介绍</a></li>
+        
+            <li><a href="/hihera-github-pages">使用Github Pages创建博客</a></li>
+        
+        </ul>
+        
+        <h2>生活</h2>
+        <ul class="artical-list">
+        
+            <li><a href="/start-now">写给开始</a></li>
+        
+        </ul>
+
+        <h2>分享</h2>
+        <ul class="artical-list">
+            <li><a href="/free_programming/index.html">免费的编程中文书籍索引</a></li>
+            <li><a href="/frontend_knowledge/index.html">前端知识结构图</a></li>
+        </ul>
+    </div>
+    <!-- 文章目录 end -->
+	
+	<!-- jd推广 start -->
+	<!--  -->
+    <!-- jd推广 end -->
+</div>
+<div id="footer">
+    <p>
+       <a href="http://sunheran.com/" target="_blank">Hihera的足迹，版权所有 © 2014 </a>。
+        感谢<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>开源技术。
+        感谢<a href="http://siberiawolf.com/" target="_blank">Siberiawolf</a>提供的帮助。
+        本站代码地址在<a href="https://github.com/hihera/hihera.github.io/tree/master/free_programming" target="_blank">这里</a>
+    </p>
+</div>
+<script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script>var duoshuoQuery = {short_name:"sunheran"};</script>
+<script src="http://static.duoshuo.com/embed.js"></script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+function toggleDuoshuoComments(container, id, url){
+  if(jQuery(container).has("div").length>0){
+    jQuery(container).empty();
+    return;
+  }
+  var el = document.createElement('div');
+  el.setAttribute('data-thread-key', id);
+  el.setAttribute('data-url', url);
+  DUOSHUO.EmbedThread(el);
+  jQuery(container).append(el);
+}
+    </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+    <script type="text/javascript">
+        $(function(){
+            $('.home-follow').click(function(e){        // 左侧悬浮点击      
+                e.preventDefault();
+
+                if($('.home-contact').is(':visible')){
+                    $('.home-contact').hide();
+                }else{
+                    $('.home-contact').show();
+                }
+            });
+        });
+    </script>
+    <!-- 百度统计代码 start -->
+    <script type="text/javascript">
+     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fde2cd1143a6ff8e921116efa8969fc1e' type='text/javascript'%3E%3C/script%3E"));
+     </script>
+
+    <!-- 百度统计代码 end -->
+</body>
+</html>
