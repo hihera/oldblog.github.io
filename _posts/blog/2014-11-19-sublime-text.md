@@ -24,7 +24,7 @@ Sublime Text 编辑器面向无语义的纯文本，不涉及领域逻辑，体�
 
     C:\Sublime Text 3
 
-这样你就可以通过 `Win + R` ，运行cmd，在命令行里利用 `subl` 命令直接使用 Sublime Text 。
+这样你就可以通过 `Win + R` ，运行cmd，在命令行利用 `subl` 命令直接使用 Sublime Text 。
 
     > subl filename   "使用sublime text 打开某个文件,filename 为文件名 "
     > subl foldername "使用sublime text 打开某个文件夹，foldername 为文件夹名"
@@ -74,8 +74,7 @@ Package Control 是一个必备的包管理器，前面提到的插件安装就�
 * 同上操作安装`Theme - Soda`
 * 安装完成后在 `Preferences->Settings -User`里边加上这句话激活主题 
 
-`"theme": "Soda Light 3.sublime-theme"`
-
+    > `"theme": "Soda Light 3.sublime-theme"`
 
 3、安装 Ruby Debugger，具体安装步骤参考 <a href="http://sublime.wbond.net/packages/Ruby%20Debugger"></a>
 
