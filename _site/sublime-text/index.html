@@ -73,7 +73,7 @@
 <pre><code>C:\Sublime Text 3
 </code></pre>
 
-<p>这样你就可以通过 <code>Win + R</code> ，运行cmd，在命令行里利用 <code>subl</code> 命令直接使用 Sublime Text 了。</p>
+<p>这样你就可以通过 <code>Win + R</code> ，运行cmd，在命令行利用 <code>subl</code> 命令直接使用 Sublime Text 。</p>
 
 <pre><code>&gt; subl filename   "使用sublime text 打开某个文件,filename 为文件名 "
 &gt; subl foldername "使用sublime text 打开某个文件夹，foldername 为文件夹名"
@@ -91,7 +91,7 @@
 <pre><code>&gt; import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 </code></pre>
 
-<p>安装成功后，使用<code>Ctrl + Shift + P</code>，打开命令版，输入 <code>IPCP</code> （支持模糊匹配,可以使用文件名的前缀、首字母或是某部分进行匹配）,出现 Package Control，这表名你可以安装任何你想用的插件了。</p>
+<p>安装成功后，使用<code>Ctrl + Shift + P</code>，打开命令版，输入 <code>PCIP</code> （支持模糊匹配,可以使用文件名的前缀、首字母或是某部分进行匹配）,出现 Package Control，这表名你可以安装任何你想用的插件了。</p>
 
 <h2>插件安装</h2>
 
@@ -128,7 +128,7 @@
 <li>同上操作安装<code>Theme - Soda</code></li>
 <li><p>安装完成后在 <code>Preferences-&gt;Settings -User</code>里边加上这句话激活主题</p>
 
-<blockquote><p>"theme": "Soda Light 3.sublime-theme"</p></blockquote></li>
+<blockquote><p><code>"theme": "Soda Light 3.sublime-theme"</code></p></blockquote></li>
 </ul>
 
 
@@ -201,11 +201,11 @@
 <code>Ctrl + ←/→</code>进行逐词移动<br/>
 <code>Ctrl + Shift + ←/→</code>进行逐词选择<br/>
 <code>Ctrl + Shift+F</code> 在当前打开的项目中，根据你的输入进行全项目查找<br/>
-<code>Ctrl + D</code> 多重选择，选择当前光标所在的词并高亮该词所有出现的位置，再次 <code>Ctrl + D</code>选择该词出现的下一个位置<br/>
+<code>Ctrl + D</code> 多重选择，高亮当前选中词，再次 <code>Ctrl + D</code>选择该词出现的下一个位置<br/>
 <code>Ctrl + K</code> 跳过<br/>
 <code>Ctrl + U</code> 回退<br/>
 <code>Ctrl + Shift + L</code> 可以将当前选中区域打散，然后进行同时编辑<br/>
-<code>Ctrl + D</code>选中关键字，<code>F3</code>跳到其下一个出现位置编辑，<code>Shift + F3</code> 跳到其上一个出现位置编辑<br/>
+<code>Ctrl + D</code>选中关键字，<code>F3</code>跳到其下一个出现位置编辑<code>Shift + F3</code> 跳到其上一个出现位置<br/>
 <code>Alt + F3</code> 选中所有出现选中的内容，可以进行全部替换<br/>
 <code>Ctrl + H</code> 可以进行标准查找替换<br/>
 <code>Ctrl + Shift + H</code> 替换当前关键字<br/>
@@ -258,6 +258,8 @@
     <div class="sidenav">
         <h2>技术</h2>
         <ul class="artical-list">
+        
+            <li><a href="/mysql-summary">MySQL数据库常用知识总结</a></li>
         
             <li><a href="/sublime-text">Sublime Text 3 使用介绍</a></li>
         

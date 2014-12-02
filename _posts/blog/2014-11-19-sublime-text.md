@@ -39,7 +39,7 @@ Package Control 是一个必备的包管理器，前面提到的插件安装就�
 
     > import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 
-安装成功后，使用`Ctrl + Shift + P`，打开命令版，输入 `IPCP` （支持模糊匹配,可以使用文件名的前缀、首字母或是某部分进行匹配）,出现 Package Control，这表名你可以安装任何你想用的插件了。
+安装成功后，使用`Ctrl + Shift + P`，打开命令版，输入 `PCIP` （支持模糊匹配,可以使用文件名的前缀、首字母或是某部分进行匹配）,出现 Package Control，这表名你可以安装任何你想用的插件了。
 
 ##插件安装
 ###常用插件介绍
