@@ -13,6 +13,14 @@ layout: home
         <div class="cate-bar"><span id="cateBar"></span></div>
 
         <ul class="artical-list">
+              {% for post in site.categories.project %}
+            <li>
+                <h2>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <div class="title-desc">{{ post.description }}</div>
+            </li>
+           {% endfor %}
             <li>
                 <h2>
                     <a href="/free_programming/index.html">免费的编程中文书籍索引</a>
